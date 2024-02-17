@@ -10,14 +10,14 @@ class Bard(
     private val client: OkHttpClient = OkHttpClient.Builder().build()
 ) {
     companion object {
-        private const val BARD_URL = "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate"
+        private const val BARD_URL = "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate"
         private val HEADERS = mapOf(
-            "Host" to "bard.google.com",
+            "Host" to "gemini.google.com",
             "X-Same-Domain" to "1",
             "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
             "Content-Type" to "application/x-www-form-urlencoded;charset=UTF-8",
-            "Origin" to "https://bard.google.com",
-            "Referer" to "https://bard.google.com/"
+            "Origin" to "https://gemini.google.com",
+            "Referer" to "https://gemini.google.com/"
         )
     }
 
@@ -34,7 +34,7 @@ class Bard(
 
     private fun getSNlM0e(): String {
         val request = Request.Builder()
-            .url("https://bard.google.com/")
+            .url("https://gemini.google.com/")
             .headers(Headers.of(HEADERS))
             .build()
 

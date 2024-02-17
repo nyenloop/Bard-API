@@ -170,10 +170,10 @@ class Bard:
         Raises:
             Exception: If the __Secure-1PSID value is invalid or SNlM0e value is not found in the response.
         """
-        if not self.token or self.token[-1] != ".":
-            print(
-                "__Secure-1PSID value should end with a single dot. Enter correct __Secure-1PSID value."
-            )
+        # if not self.token or self.token[-1] != ".":
+        #     print(
+        #         "__Secure-1PSID value should end with a single dot. Enter correct __Secure-1PSID value."
+        #     )
         resp = self.session.get(
             "https://gemini.google.com/app", timeout=self.timeout, proxies=self.proxies
         )
@@ -865,7 +865,7 @@ class Bard:
     #             self.exp_id = exp_id
 
     #         # Update cookies using the extracted og_pid and exp_id
-    #         update_cookies_url = f"https://accounts.google.com/RotateCookiesPage?og_pid={self.og_pid}&rot={self.rot}&origin=https%3A%2F%2Fbard.google.com&exp_id={self.exp_id}"
+    #         update_cookies_url = f"https://accounts.google.com/RotateCookiesPage?og_pid={self.og_pid}&rot={self.rot}&origin=https%3A%2F%2Fgemini.google.com&exp_id={self.exp_id}"
     #         headers_google = {
     #             "Host": "accounts.google.com",
     #             "Referer": "https://gemini.google.com/",
@@ -895,7 +895,7 @@ class Bard:
     #     self._set_cookie_refresh_data()
     #     data = [self.og_pid, f"{self.init_value}"]
     #     data = json.dumps(data)
-    #     update_cookies_url = f"https://accounts.google.com/RotateCookiesPage?og_pid={self.og_pid}&rot={self.rot}&origin=https%3A%2F%2Fbard.google.com&exp_id={self.exp_id}"
+    #     update_cookies_url = f"https://accounts.google.com/RotateCookiesPage?og_pid={self.og_pid}&rot={self.rot}&origin=https%3A%2F%2Fgemini.google.com&exp_id={self.exp_id}"
 
     #     # Update 1PSIDTS using the extracted og_pid and initValue
     #     update_1psidts_url = "https://accounts.google.com/RotateCookies"

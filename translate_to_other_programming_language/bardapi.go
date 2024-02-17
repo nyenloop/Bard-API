@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	bardURL         = "https://bard.google.com"
+	bardURL         = "https://gemini.google.com"
 	streamGenerate  = "/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate"
 	contentType     = "Content-Type"
 	contentTypeValue = "application/x-www-form-urlencoded;charset=UTF-8"
@@ -123,11 +123,11 @@ func (b *Bard) GetAnswer(inputText string) (BardAnswer, error) {
 	}
 
 	req.Header.Set(contentType, contentTypeValue)
-	req.Header.Set(host, "bard.google.com")
+	req.Header.Set(host, "gemini.google.com")
 	req.Header.Set(xSameDomain, "1")
-	req.Header.Set(referer, "https://bard.google.com/")
+	req.Header.Set(referer, "https://gemini.google.com/")
 	req.Header.Set(userAgent, "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36")
-	req.Header.Set(origin, "https://bard.google.com")
+	req.Header.Set(origin, "https://gemini.google.com")
 	req.Header.Set(cookie, "__Secure-1PSID="+b.Token)
 
 	resp, err := b.Session.Do(req)

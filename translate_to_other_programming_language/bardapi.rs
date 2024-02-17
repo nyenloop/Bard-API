@@ -45,7 +45,7 @@ impl Bard {
 
     fn get_snim0e(client: &Client, timeout: u64, proxies: &Option<HeaderMap>) -> Result<String, String> {
         let response = client
-            .get("https://bard.google.com/")
+            .get("https://gemini.google.com/")
             .timeout(std::time::Duration::from_secs(timeout))
             .header(reqwest::header::USER_AGENT, Self::HEADERS)
             .headers(proxies.clone().unwrap_or_default())
@@ -89,7 +89,7 @@ impl Bard {
         });
 
         let response = self.session
-            .post("https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate")
+            .post("https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate")
             .timeout(std::time::Duration::from_secs(self.timeout))
             .header(reqwest::header::USER_AGENT, Self::HEADERS)
             .headers(self.proxies.clone().unwrap_or_default())

@@ -2,12 +2,12 @@
 
 class Bard {
     private const HEADERS = array(
-        "Host" => "bard.google.com",
+        "Host" => "gemini.google.com",
         "X-Same-Domain" => "1",
         "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
         "Content-Type" => "application/x-www-form-urlencoded;charset=UTF-8",
-        "Origin" => "https://bard.google.com",
-        "Referer" => "https://bard.google.com/"
+        "Origin" => "https://gemini.google.com",
+        "Referer" => "https://gemini.google.com/"
     );
 
     private $token;
@@ -38,7 +38,7 @@ class Bard {
         if (!$this->token || substr($this->token, -1) !== ".") {
             throw new Exception("__Secure-1PSID value must end with a single dot. Enter correct __Secure-1PSID value.");
         }
-        $resp = $this->session->get("https://bard.google.com/", array("timeout" => $this->timeout, "proxies" => $this->proxies));
+        $resp = $this->session->get("https://gemini.google.com/", array("timeout" => $this->timeout, "proxies" => $this->proxies));
         if ($resp->status_code !== 200) {
             throw new Exception("Response code not 200. Response Status is " . $resp->status_code);
         }
@@ -64,7 +64,7 @@ class Bard {
             "at" => $this->SNlM0e
         );
         $resp = $this->session->post(
-            "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
+            "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
             array("timeout" => $this->timeout, "proxies" => $this->proxies),
             $params,
             $data

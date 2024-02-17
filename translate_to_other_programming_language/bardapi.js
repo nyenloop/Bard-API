@@ -4,13 +4,13 @@ const axios = require('axios');
 
 class Bard {
   HEADERS = {
-    Host: 'bard.google.com',
+    Host: 'gemini.google.com',
     'X-Same-Domain': '1',
     'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-    Origin: 'https://bard.google.com',
-    Referer: 'https://bard.google.com/',
+    Origin: 'https://gemini.google.com',
+    Referer: 'https://gemini.google.com/',
   };
 
   constructor(token = null, timeout = 20, proxies = null, session = null) {
@@ -34,7 +34,7 @@ class Bard {
     if (!this.token || this.token[this.token.length - 1] !== '.') {
       throw new Error('__Secure-1PSID value must end with a single dot. Enter correct __Secure-1PSID value.');
     }
-    const resp = await this.session.get('https://bard.google.com/');
+    const resp = await this.session.get('https://gemini.google.com/');
     if (resp.status !== 200) {
       throw new Error(`Response code not 200. Response Status is ${resp.status}`);
     }
@@ -65,7 +65,7 @@ class Bard {
       at: this.SNlM0e,
     };
     const resp = await this.session.post(
-      'https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate',
+      'https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate',
       { params, data }
     );
     const [, , resp_dict] = JSON.parse(resp.data.split('\n')[3]);

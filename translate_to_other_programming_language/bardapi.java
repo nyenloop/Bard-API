@@ -45,7 +45,7 @@ public class Bard {
         }
 
         Request request = new Request.Builder()
-                .url("https://bard.google.com/")
+                .url("https://gemini.google.com/")
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
@@ -76,7 +76,7 @@ public class Bard {
             RequestBody requestBody = RequestBody.create(data.toString(), MediaType.parse("application/json; charset=utf-8"));
 
             Request request = new Request.Builder()
-                    .url("https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate")
+                    .url("https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate")
                     .post(requestBody)
                     .build();
 

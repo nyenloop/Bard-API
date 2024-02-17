@@ -9,9 +9,9 @@ namespace BardNamespace
 {
     public class Bard
     {
-        private const string BARD_HOST = "bard.google.com";
-        private const string BARD_URL = "https://bard.google.com/";
-        private const string STREAM_GENERATE_URL = "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate";
+        private const string BARD_HOST = "gemini.google.com";
+        private const string BARD_URL = "https://gemini.google.com/";
+        private const string STREAM_GENERATE_URL = "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate";
 
         private static readonly Dictionary<string, string> HEADERS = new Dictionary<string, string>()
         {

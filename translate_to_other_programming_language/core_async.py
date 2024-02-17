@@ -101,7 +101,7 @@ class BardAsync:
         }
 
         resp = await self.client.post(
-            "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
+            "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
             params=params,
             data=data,
             timeout=self.timeout,
@@ -200,7 +200,7 @@ class BardAsync:
             )
 
         resp = await self.client.get(
-            "https://bard.google.com/", timeout=self.timeout, follow_redirects=True
+            "https://gemini.google.com/", timeout=self.timeout, follow_redirects=True
         )
         if resp.status_code != 200:
             raise Exception(
